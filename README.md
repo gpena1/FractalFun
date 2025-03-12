@@ -1,4 +1,6 @@
-These are the fractals I've drawn so far. I may work on making more.
+These are the fractals I've drawn so far. I may work on making more.\
+To use these, run them as executables and pass in a single argument, an integer denoting the number of iterations you would like to draw these fractals to.\
+Example usage: `./sierpinski 6`
 
 ## Sierpinski
 ![](sierpinski.png)
