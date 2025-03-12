@@ -1,0 +1,90 @@
+#!/usr/local/bin/python
+from turtle import *
+import sys
+setup(width=1024, height=1024)
+penup()
+points = []
+speed(4)
+goto(-100,0)
+pendown()
+left(60)
+for i in range(3):
+    forward(512)
+    points.append((xcor(), ycor()))
+    right(120)
+points = [points[-1]] + points[:2]
+
+import math
+
+def midpoints(cx, cy, s): 
+    h = s * math.sqrt(3) / 2   
+    r = 2 * h / 3
+    vertices = [
+        (cx - s/2, cy - r/2),    # Bottom left
+        (cx + s/2, cy - r/2),    # Bottom right
+        (cx, cy + r)             # Top
+    ] 
+    midpts = [
+        ((vertices[0][0] + vertices[1][0])/2, (vertices[0][1] + vertices[1][1])/2),
+        ((vertices[1][0] + vertices[2][0])/2, (vertices[1][1] + vertices[2][1])/2),
+        ((vertices[2][0] + vertices[0][0])/2, (vertices[2][1] + vertices[0][1])/2)
+    ]
+    
+    return midpts
+
+
+def triangle_vertices(cx, cy, s):
+    # Calculate the height of the equilateral triangle
+    h = s * math.sqrt(3) / 2
+    
+    # Distance from centroid to any vertex
+    r = 2 * h / 3
+    
+    # Define vertices (two on a horizontal line, third above)
+    vertices = [
+        (cx - s/2, cy - r/2),    # Bottom left
+        (cx + s/2, cy - r/2),    # Bottom right
+        (cx, cy + r)             # Top
+    ]
+    
+    return vertices
+
+def dist(p1, p2):
+    x1,y1 = p1
+    x2,y2 = p2
+    return ((x2-x1)**2 + (y2-y1)**2)**0.5
+def drawFractal(cx, cy, s, iterations):
+    if not iterations: return
+    m = midpoints(cx,cy,s)
+    v = triangle_vertices(cx,cy,s)
+    penup()
+    goto(m[0])
+    pendown()
+    for p in m[1:] + [m[0]]:
+        goto(*p)
+
+    t1 = [m[0], m[1], v[1]]
+    t1x,t1y = sum(x for x,y in t1)/3, sum(y for x,y in t1)/3
+    t2 = [v[0], m[2], m[0]]
+    t2x,t2y = sum(x for x,y in t2)/3, sum(y for x,y in t2)/3
+    t3 = [m[2], v[2], m[1]]
+    t3x,t3y = sum(x for x,y in t3)/3, sum(y for x,y in t3)/3
+
+    drawFractal(t1x,t1y,s/2,iterations-1)
+    drawFractal(t2x,t2y,s/2,iterations-1)
+    drawFractal(t3x,t3y,s/2,iterations-1)
+
+
+
+    
+
+from math import sin,cos,pi
+
+cx = sum(x for x,y in points) / 3
+cy = sum(y for x,y in points) / 3
+
+drawFractal(cx,cy, points[2][0] - points[0][0], int(sys.argv[1]))
+penup()
+goto(-100,0)
+
+mainloop()

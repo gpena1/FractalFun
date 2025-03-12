@@ -1,0 +1,30 @@
+#!/usr/local/bin/python
+from turtle import *
+from math import sin,cos,pi
+from shared import triangle
+import sys
+setup(width=1024, height=1024)
+
+s = 0.9
+
+
+
+def fractal(n,k,c,x,y, iterations):
+    if not iterations: return
+    x1,y1 = triangle(n,k,c,x,y)[1]
+    fractal(n+1,k*s,c,x1,y1,iterations-1)
+
+speed(0)
+width(3)
+
+# points are returned in the following order:
+# bottom right, top, bottomleft
+points = triangle(0,100,-pi/6,0,0)
+it = int(sys.argv[1])
+fractal(0,40,-pi/6,points[1][0],points[1][1],it)
+fractal(0,40,pi/2,points[2][0],points[2][1],it)
+fractal(0,40,-5*pi/6,points[0][0],points[0][1],it)
+penup()
+goto(-500,-500)
+
+mainloop()
