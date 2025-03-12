@@ -5,6 +5,7 @@ setup(width=1024, height=1024)
 penup()
 points = []
 speed(4)
+hideturtle()
 goto(-100,0)
 pendown()
 left(60)
