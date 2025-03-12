@@ -15,6 +15,8 @@ def fractal(n,k,c,x,y, iterations):
     fractal(n+1,k*s,c,x1,y1,iterations-1)
 
 speed(0)
+screen = Screen()
+screen.tracer(0)
 width(3)
 
 # points are returned in the following order:
@@ -25,6 +27,5 @@ fractal(0,40,-pi/6,points[1][0],points[1][1],it)
 fractal(0,40,pi/2,points[2][0],points[2][1],it)
 fractal(0,40,-5*pi/6,points[0][0],points[0][1],it)
 penup()
-goto(-500,-500)
 
 mainloop()

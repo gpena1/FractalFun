@@ -4,8 +4,10 @@ import sys
 setup(width=1024, height=1024)
 penup()
 points = []
-speed(4)
+speed(0)
 hideturtle()
+screen = Screen()
+screen.tracer(0)
 goto(-100,0)
 pendown()
 left(60)
@@ -86,6 +88,5 @@ cy = sum(y for x,y in points) / 3
 
 drawFractal(cx,cy, points[2][0] - points[0][0], int(sys.argv[1]))
 penup()
-goto(-100,0)
 
 mainloop()
