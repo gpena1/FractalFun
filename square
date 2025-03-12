@@ -1,0 +1,29 @@
+#!/usr/local/bin/python
+from turtle import *
+import sys
+setup(width=1024, height=1024)
+screen = Screen()
+screen.tracer(0)
+hideturtle()
+goto(0,0)
+k = 0.9
+def drawFractal(x,y,sz, iterations):
+    if not iterations: return
+    quarter = sz / 4
+    half = sz / 2
+    goto(x - quarter, y + quarter)
+    pendown()
+    for i in range(4):
+        forward(half)
+        right(90)
+    penup()
+    drawFractal(x-quarter,y+quarter, half*k, iterations-1)
+    drawFractal(x+quarter,y+quarter, half*k, iterations-1)
+    drawFractal(x-quarter,y-quarter, half*k, iterations-1)
+    drawFractal(x+quarter,y-quarter, half*k, iterations-1)
+
+penup()
+drawFractal(0,0,1024,int(sys.argv[1]))
+screen.update()
+
+mainloop()

@@ -8,3 +8,5 @@ I haven't been able to identify this fractal, as this is one I thought of indepe
 ![](triangle.png)
 ## Koch Snowflake
 ![](koch.png)
+## Square
+![](square.png)
