@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python3.12
 from turtle import *
 from math import sin,cos,pi
 from shared import triangle

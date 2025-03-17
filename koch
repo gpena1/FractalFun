@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python3.12
 from turtle import *
 from shared import triangle,distance
 from math import pi,sin,cos,atan2

@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python3.12
 from turtle import *
 import sys
 setup(width=1024, height=1024)
