@@ -12,3 +12,5 @@ I haven't been able to identify this fractal, as this is one I thought of indepe
 ![](koch.png)
 ## Square
 ![](square.png)
+## Complete Graph
+![](complete_graph_example.png)
