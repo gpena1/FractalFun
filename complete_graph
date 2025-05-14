@@ -3,6 +3,7 @@ from turtle import *
 from math import pi, sin, cos
 import sys
 
+speed(0)
 hideturtle()
 setup(width=1024, height=1024)
 s = Screen()
