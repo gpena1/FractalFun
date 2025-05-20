@@ -1,4 +1,4 @@
-These are the fractals I've drawn so far. I may work on making more.\
+These are the fractals (and other interesting things, in general) I've drawn so far. I may work on making more.\
 To use these, run them as executables and pass in a single argument, an integer denoting the number of iterations you would like to draw these fractals to.\
 Example usage: `./sierpinski 6`
 
@@ -14,3 +14,5 @@ I haven't been able to identify this fractal, as this is one I thought of indepe
 ![](square.png)
 ## Complete Graph
 ![](complete_graph_example.png)
+## Metatron's Cube
+![](metatron_cube.png)
