@@ -6,8 +6,6 @@ def create_circle(canvas, x, y, r, **kwargs):
     return canvas.create_oval(x-r, y-r, x+r, y+r, **kwargs)
 
 root = tk.Tk()
-root.title("Tkinter Circle")
-root.geometry("1920x1080")
 
 canvas = tk.Canvas(root, width=1920, height=1080, bg="black")
 canvas.pack(fill="both", expand=True)
